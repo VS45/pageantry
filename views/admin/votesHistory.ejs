@@ -1,0 +1,32 @@
+<%- include('../includes/header.ejs')%>
+    </head>
+
+    <body>
+        <%- include('../includes/top')%>
+            <%- include('../includes/navbar')%>
+        <div class="container-fluid pt-5">
+			<div class="row justify-content-center">
+				<div class="col-lg-12 col-md-12 white_shd full margin_bottom_30">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Stage Name</th>
+                        <th>Amount</th>
+                        <th>Total Votes</th>
+                        <th>Email</th>
+                    </tr>
+                    <% for(let contestant of votesHistory){  %>
+                    <tr>
+                        <td><%=contestant.stagename%></td>
+                        <td><%=contestant.amount%></td>
+                        <td><%=contestant.totalVotes%></td>
+                        <td><%=contestant.email%></td>
+                    </tr>
+                    <%}%>
+                </table>
+                </div>
+			</div>
+		</div>
+                <%- include('../includes/footer.ejs') %>
+    </body>
+
+    </html>

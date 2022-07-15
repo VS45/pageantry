@@ -16,3 +16,12 @@ const update=await contestant.save();
 console.log(err)
     }
 }
+
+exports.getVotesHistory=async(req,res,next)=>{
+    try{
+const votesHistory=await VoteHistory.find();
+res.render('admin/votesHistory',{votesHistory:votesHistory,title:'Votes History',path:'/voteshistory'})
+    }catch(err){
+        console.log(err)
+    }
+}
