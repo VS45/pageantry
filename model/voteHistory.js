@@ -13,7 +13,11 @@ const voteHistorySchema = new Schema({
     type:Number,
     required:true
    },
-    totalVotes:Number
+    totalVotes:Number,
+    email:{
+        type:String,
+        required:true
+    }
 }, {
     timestamps: true,
 });

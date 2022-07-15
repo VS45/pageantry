@@ -18,6 +18,7 @@
                                  <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                      <h6 class="text-truncate mb-3">Stage Name</h6>
                                      <p style="font-size: 16px;"><%=contestant.stagename%></p>
+                                     <input type="hidden" name="stagename" value="<%=contestant.stagename%>" id="stagename">
                                      <div class="d-flex justify-content-center">
                                        
                                         <h6>Contestant Number </h6>
@@ -68,9 +69,10 @@ document.getElementById("totalVotes").value=totalVoting;
        
        <script>
         function makePayment() {
-            let payAmount=document.getElementById("amount").value;
+            let amount=document.getElementById("amount").value;
             let email=document.getElementById("email").value;
-
+            let totalVotes=document.getElementById("totalVotes").value;
+            let stagename=document.getElementById("stagename").value;
           FlutterwaveCheckout({
             public_key: "FLWPUBK-e1988ad88e0d009cbf2f2ebd508832f6-X",
             tx_ref: "RX1",
@@ -85,12 +87,21 @@ document.getElementById("totalVotes").value=totalVoting;
             callback: function (data) { // specified callback function
               console.log(data);
               alert("You can now vote")
+//adding votes into history table
+fetch('vote/contestant',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({amount:amount,totalVotes:totalVotes,email:email,stagename:stagename})
+}).then(res=>res.json()).then(data=>{
+window.location.replace("/");
+})
+
              // window.location.replace("/api/v1/contestant/paid/"+id+"/"+payAmount);
 
             },
             customizations: {
-              title: "Voting",
-              description: "Payment for items in cart",
+              title: "Ishan I Jemgbagh",
+              description: "Voting for"+stagename,
             //  logo: "https://assets.piedpiper.com/logo.png",
             },
           });

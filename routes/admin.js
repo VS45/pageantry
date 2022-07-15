@@ -2,6 +2,7 @@ const express=require('express');
 const router=express.Router()
 const uploadImage=require('../services/firebaseupload');
 const contestantCtrl=require('../controller/contestant')
+const voteHistoryCtrl=require('../controller/voteHistory')
 const multer=require('multer');
 //const isAuth=require('./isAuth');
 const fileFilter=(req,file,cb)=>{
@@ -21,6 +22,7 @@ const upload=multer({
 
     router.get('/contestant',contestantCtrl.getAddContestant);  
     router.get('/contestant/:id',contestantCtrl.getContestant);  
+    router.post('/vote/contestant',voteHistoryCtrl.postVotesHistory);   
     router.post('/contestant',upload.single('image'),uploadImage,contestantCtrl.postContestant);  
 
   module.exports=router;
