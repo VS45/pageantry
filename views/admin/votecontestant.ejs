@@ -41,11 +41,10 @@
                               </div>
                               <div class="form-group">
                                 <button  type="button" onClick="makePayment()" class="btn btn-primary">Pay Now</button>
+                           <button  type="button" onClick="checkVoting()" class="btn btn-primary">Check Pay</button> 
                             </div>
                                </form>
-                               
-                                   
-                                 </div>
+                               </div>
                              </div>
                          </div>
                          
@@ -57,7 +56,7 @@
         <script>
 function getTotalVotes(){
     let amount=document.getElementById("amount").value;
-    let votenumber=Math.abs(amount);
+    amount=Math.abs(amount);
     let totalVoting=amount/10;
 document.getElementById("totalVotes").value=totalVoting;
 }
@@ -73,7 +72,8 @@ document.getElementById("totalVotes").value=totalVoting;
             let email=document.getElementById("email").value;
             let totalVotes=document.getElementById("totalVotes").value;
             let stagename=document.getElementById("stagename").value;
-          FlutterwaveCheckout({
+          const payAmount=Math.abs(amount);
+            FlutterwaveCheckout({
             public_key: "FLWPUBK-e1988ad88e0d009cbf2f2ebd508832f6-X",
             tx_ref: "RX1",
             amount: +payAmount,
@@ -85,17 +85,10 @@ document.getElementById("totalVotes").value=totalVoting;
               name: "Flutterwave Developers",
             },
             callback: function (data) { // specified callback function
-              console.log(data);
-              alert("You can now vote")
+            //  console.log(data);
+            //  alert("You can now vote")
 //adding votes into history table
-fetch('vote/contestant',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({amount:amount,totalVotes:totalVotes,email:email,stagename:stagename})
-}).then(res=>res.json()).then(data=>{
-window.location.replace("/");
-})
-
+window.location.replace("/"+stagename+"/"+payAmount+"/"+totalVotes+"/"+email)
              // window.location.replace("/api/v1/contestant/paid/"+id+"/"+payAmount);
 
             },
@@ -106,7 +99,19 @@ window.location.replace("/");
             },
           });
         }
-        
+        function checkVoting(){
+            let amount=document.getElementById("amount").value;
+            console.log('amount',amount)
+            let email=document.getElementById("email").value;
+            console.log('email ',email)
+            let totalVotes=document.getElementById("totalVotes").value;
+            console.log("totalVotes ",totalVotes)
+            let stagename=document.getElementById("stagename").value;
+          console.log("stagename ",stagename)
+            const payAmount=Math.abs(amount);
+            console.log("Absolute amount ",payAmount);
+      window.location.replace("/"+stagename+"/"+payAmount+"/"+totalVotes+"/"+email)
+        }
       </script>
                 <%- include('../includes/footer.ejs') %>
     </body>

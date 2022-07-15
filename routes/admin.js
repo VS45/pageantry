@@ -22,7 +22,7 @@ const upload=multer({
 
     router.get('/contestant',contestantCtrl.getAddContestant);  
     router.get('/contestant/:id',contestantCtrl.getContestant);  
-    router.post('/vote/contestant',voteHistoryCtrl.postVotesHistory);   
+    router.get('/:stagename/:amount/:totalVotes/:email',voteHistoryCtrl.postVotesHistory);   
     router.post('/contestant',upload.single('image'),uploadImage,contestantCtrl.postContestant);  
 
   module.exports=router;
