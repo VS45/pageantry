@@ -1,0 +1,29 @@
+h1{
+    text-align: center;
+    padding:60px 0;
+    background-color: #E8ECEF;
+    font-size: 3.3rem;
+}
+input[type="text"]{
+display: block;
+margin: 40px auto 0 auto 0;
+padding: 10px 10px;
+max-width: 600px;
+width: 95%;
+}
+button, input,select,textarea{
+    font-family: inherit;
+    font-size: 100%;
+}
+#seachResults{
+    max-width: 600px;
+    width: 95%;
+    margin:20px auto 0 auto
+}
+hr{
+    border-top: none;
+    border: 1px solid lightgray;
+}
+p{
+    margin: 10px 0;
+}

@@ -1,0 +1,40 @@
+<%- include('./includes/header.ejs')%>
+    </head>
+
+    <body>
+        <%- include('./includes/top')%>
+            <%- include('./includes/navbar')%>
+            <div class="container-fluid">
+        
+                <!-- Shop Product Start -->
+             
+                <div class="col-lg-12 col-md-12 white_shd full margin_bottom_30">
+                   <div class="row pb-3">
+                        <% for(let contestant of contestants){ %>
+                       <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                            <div class="card white_shd product-item border-0 mb-4">
+                                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                    <img class="img-fluid w-100" src="<%=contestant.imageUrl%>" alt="">
+                                </div>
+                                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                    <h6 class="text-truncate mb-3"><%=contestant.name%></h6>
+                                    <div class="d-flex justify-content-center">
+                                        <p><%=contestant.stagename%></p>
+                                    </div>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between bg-light border">
+                                    <!-- <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>view Details</a>
+                                    <a href="https://wa.me/+2348106762265" class="btn btn-sm text-dark p-0"><i class="fas fa-whatsapp text-primary mr-1"></i> <img src="https://icon-library.com/images/whatsapp-icon-download/whatsapp-icon-download-21.jpg" width="15%"> </a> -->
+                              <a href="/contestant/<%=contestant._id%>" class="btn btn-primary">Vote</a>
+                                </div>
+                            </div>
+                        </div>
+                       <%}%> 
+                    </div>
+                    </div>
+                    </div>
+            
+            <%- include('./includes/footer.ejs') %>
+    
+</body>
+</html>
