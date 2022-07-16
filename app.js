@@ -9,6 +9,7 @@ const User=require('./model/user')
 const PORT=process.env.PORT||7000;
 const adminRoute=require('./routes/admin') 
 const session = require('express-session');
+const flash = require('connect-flash');
 const MONGODB_URI="mongodb+srv://VS45TECH:Bringfireh88@vs45techportal.9fxjvup.mongodb.net/pageantry"
 const MongoDBStore = require('connect-mongodb-session')(session)
 var store = new MongoDBStore({
@@ -45,6 +46,7 @@ app.use((req, res, next) => {
   //  res.locals.service=req.service;
     next();
 });    
+app.use(flash()); 
 app.use(adminRoute);
  app.get('/',async(req,res,next)=>{
     try{

@@ -74,6 +74,10 @@ document.getElementById("totalVotes").value=totalVoting;
             let totalVotes=document.getElementById("totalVotes").value;
             let stagename=document.getElementById("stagename").value;
           const payAmount=Math.abs(amount);
+          if(payAmount<100){
+            alert("You can't Votes with less than NGN100");
+            return
+          }
             FlutterwaveCheckout({
             public_key: "FLWPUBK-e1988ad88e0d009cbf2f2ebd508832f6-X",
             tx_ref: "RX1",

@@ -1,0 +1,36 @@
+<%- include('../includes/header.ejs')%>
+    </head>
+
+    <body>
+        <%- include('../includes/top')%>
+            <%- include('../includes/navbar')%>
+                <div class="container-fluid pt-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 col-md-12 white_shd full margin_bottom_30">
+                           <center style="margin-bottom:2% ;"><h2>Contestants Voting Summary Page</h2> </center>
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>SN</th>
+                                    <th>Stage Name</th>
+                                    <th>Total Votes</th>
+                                </tr>
+                                <% for(var i = 0; i< contestants.length; i++) {%> 
+                                
+                                    <tr>
+                                        <td><%=i+1%></td>
+                                        <td>
+                                            <%=contestants[i].stagename%>
+                                        </td>
+                                        <td>
+                                            <%=contestants[i].totalVotes%>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <%- include('../includes/footer.ejs') %>
+    </body>
+
+    </html>

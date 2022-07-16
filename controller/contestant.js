@@ -28,3 +28,13 @@ exports.getContestant=async(req,res,next)=>{
     console.log(err)
  }
 }
+
+exports.getContestants=async(req,res,next)=>{
+    try{
+const contestants=await contestant.find();
+
+res.render('admin/viewcontestants',{title:'All Contestant',path:'/',contestants:contestants})
+    }catch(err){
+        res.render('error',{error:err,title:'Error Page',path:'/error'})
+    }
+}

@@ -21,16 +21,18 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Contestants</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="/contestant" class="dropdown-item">Add Contestant</a>
-                                <a href="/my-services" class="dropdown-item">My Services</a>
+                                <a href="/contestants" class="dropdown-item">View Voting</a>
+                                <a href="/votes-history" class="dropdown-item">Voting History</a>
+                                <a href="/logout" class="dropdown-item">Logout</a>
                             </div>
                         </div>
                         <%}%>
-                        <a href="/contestant" class="nav-item nav-link">Add Contestant</a>
+                        <!-- <a href="/contestant" class="nav-item nav-link">Add Contestant</a> -->
                     </div>
                     <div class="navbar-nav ml-auto py-0">
                         <% if(!isAuthenticated){ %>
                         <a href="/login" class="nav-item nav-link">Login</a>
-                        <a href="/signup" class="nav-item nav-link">Register</a>
+                       <!--  <a href="/signup" class="nav-item nav-link">Register</a> -->
                         <%}%>
                     </div>
                 </div>
