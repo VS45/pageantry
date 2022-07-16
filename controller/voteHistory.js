@@ -7,7 +7,7 @@ exports.postVotesHistory=async(req,res,next)=>{
     
 const result=await VoteHistory.create({stagename,amount,totalVotes,email})
 const contestant=await Contestant.findOne({stagename:stagename});
-const initialVotes=contestant.totalVotes;
+const initialVotes=contestant.totalVotes||0;
 console.log(initialVotes);
 contestant.totalVotes=+totalVotes+ +initialVotes;
 const update=await contestant.save();
