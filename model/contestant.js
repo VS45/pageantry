@@ -28,7 +28,10 @@ const contestantSchema = new Schema({
         type: String,
         required: true
     },
-    totalVotes:Number
+    totalVotes:Number,
+    status:{
+        type:String
+    }
 }, {
     timestamps: true,
 });

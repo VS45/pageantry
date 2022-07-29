@@ -30,8 +30,12 @@ const upload=multer({
     router.get('/logout',userCtrl.postLogout);
     router.get('/contestants',isAuth,contestantCtrl.getContestants);  
     router.get('/contestant/:id',contestantCtrl.getContestant);  
+    router.get('/vote/:id',isAuth,contestantCtrl.getAdminVote);  
+    router.get('/admin-contestants',isAuth,contestantCtrl.getAdminContestants);     
+    router.get('/edit/:id',isAuth,contestantCtrl.getEdit);     
     router.get('/:stagename/:amount/:totalVotes/:email',voteHistoryCtrl.postVotesHistory);   
-    router.get('/votes-history',isAuth,voteHistoryCtrl.getVotesHistory);   
-    router.post('/contestant',upload.single('image'),uploadImage,contestantCtrl.postContestant);  
+    router.get('/votes-history',isAuth,voteHistoryCtrl.getVotesHistory); 
+    router.post('/update-contestant',isAuth,contestantCtrl.updateContestant);  
+    router.post('/contestant',isAuth,upload.single('image'),uploadImage,contestantCtrl.postContestant);  
 
   module.exports=router;

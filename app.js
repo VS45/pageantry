@@ -1,6 +1,8 @@
 const express=require('express');
 const contestant=require('./model/contestant')
 const bodyParser=require('body-parser')
+
+
 const app=express();
 const mongoose=require('mongoose');
 const path=require('path')
@@ -14,9 +16,9 @@ const MONGODB_URI="mongodb+srv://VS45TECH:Bringfireh88@vs45techportal.9fxjvup.mo
 const MongoDBStore = require('connect-mongodb-session')(session)
 var store = new MongoDBStore({
     uri: MONGODB_URI,
-    collection: 'sessions'
+    collection: 'sessions' 
 });
-app.set('view engine','ejs');
+app.set('view engine','ejs'); 
 app.set('views','views');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));

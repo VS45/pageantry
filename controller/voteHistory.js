@@ -2,6 +2,7 @@ const VoteHistory=require('../model/voteHistory');
 const Contestant=require('../model/contestant');
 
 exports.postVotesHistory=async(req,res,next)=>{
+
     const {stagename,amount,totalVotes,email}=req.params;
  try{
     
@@ -20,7 +21,13 @@ console.log(err)
 exports.getVotesHistory=async(req,res,next)=>{
     try{
 const votesHistory=await VoteHistory.find();
-res.render('admin/votesHistory',{votesHistory:votesHistory,title:'Votes History',path:'/voteshistory'})
+let totalVotes=0;
+let totalAmount=0;
+  for(let i=0;i<votesHistory.length;i++){
+ totalVotes+=votesHistory[i].totalVotes;
+ totalAmount+=votesHistory[i].amount;
+}
+res.render('admin/votesHistory',{votesHistory:votesHistory,totalAmount:totalAmount,totalVotes:totalVotes,title:'Votes History',path:'/voteshistory'})
     }catch(err){
         console.log(err)
     }

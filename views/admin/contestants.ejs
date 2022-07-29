@@ -14,7 +14,9 @@
                                     <th>SN</th>
                                     <th>Stage Name</th>
                                     <th>Total Votes</th>
-                                    <th>Percentage</th>
+                                    <th>Status</th>
+                                    <th>Edit</th>
+                                    <th>Action</th>
                                 </tr>
                                 <% for(var i = 0; i< contestants.length; i++) {%> 
                                 
@@ -27,7 +29,13 @@
                                             <%=contestants[i].totalVotes%>
                                         </td>
                                         <td>
-                                            <%=contestants[i].totalVotes%>*100/<%=totalVotes%>
+                                            <%=contestants[i].status%>
+                                        </td>
+                                        <td>
+                                            <a href="/edit/<%=contestants[i]._id%>">Edit</a>
+                                        </td>
+                                        <td>
+                                            <a href="/vote/<%=contestants[i]._id%>">Vote</a>
                                         </td>
                                     </tr>
                                     <%}%>

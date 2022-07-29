@@ -21,11 +21,17 @@
                                     <div class="d-flex justify-content-center">
                                         <p><%=contestant.stagename%></p>
                                     </div>
+                                    <div  class="justify-content-center">
+                                        <p class="<%=contestant.status==='Active'? 'green':'red'%>"><%=contestant.status%></p>
+                                    </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-between bg-light border">
                                     <!-- <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>view Details</a>
                                     <a href="https://wa.me/+2348106762265" class="btn btn-sm text-dark p-0"><i class="fas fa-whatsapp text-primary mr-1"></i> <img src="https://icon-library.com/images/whatsapp-icon-download/whatsapp-icon-download-21.jpg" width="15%"> </a> -->
-                              <a href="/contestant/<%=contestant._id%>" class="btn btn-primary">Vote</a>
+                           
+
+                          
+                                    <a id="<%=contestant.status==='Active'? 'active':'none'%>"  href="/contestant/<%=contestant._id%>" class="btn btn-primary">Vote</a>
                                 </div>
                             </div>
                         </div>
