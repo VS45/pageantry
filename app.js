@@ -11,8 +11,7 @@ const PORT = process.env.PORT || 7000;
 const adminRoute = require("./routes/admin");
 const session = require("express-session");
 const flash = require("connect-flash");
-const MONGODB_URI =
-  "mongodb+srv://VS45TECH:Bringfireh88@benuemarket.srwnv.mongodb.net/pageantry?retryWrites=true&w=majority";
+const MONGODB_URI =process.env.MONGODB_URI
 const MongoDBStore = require("connect-mongodb-session")(session);
 var store = new MongoDBStore({
   uri: MONGODB_URI,
