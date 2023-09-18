@@ -12,7 +12,7 @@ const adminRoute = require("./routes/admin");
 const session = require("express-session");
 const flash = require("connect-flash");
 const MONGODB_URI =
-  "mongodb+srv://VS45TECH:Bringfireh88@vs45techportal.9fxjvup.mongodb.net/pageantry";
+  "mongodb+srv://VS45TECH:Bringfireh88@benuemarket.srwnv.mongodb.net/pageantry?retryWrites=true&w=majority";
 const MongoDBStore = require("connect-mongodb-session")(session);
 var store = new MongoDBStore({
   uri: MONGODB_URI,
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "static")));
 app.use(
   session({
-    secret: "my secret",
+    secret: "my secret",   
     resave: false,
     saveUninitialized: false,
     store: store,
