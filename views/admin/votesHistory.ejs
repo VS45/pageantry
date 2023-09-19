@@ -6,7 +6,7 @@
             <%- include('../includes/navbar')%>
         <div class="container-fluid pt-5">
 			<div class="row justify-content-center">
-				<div class="col-lg-6 col-md-12 white_shd full margin_bottom_30">
+				<div class="col-lg-8 col-md-12 white_shd full margin_bottom_30">
                   <h2>Total Votes: <%=totalVotes%></h2> 
                   <h2 style="margin-top: 2%; color:orangered">Total Amount: <%=totalAmount%></h2> 
                     <center style="margin-bottom: 2%;"><h4> Contestants Voting History Page</h4></center>
@@ -17,6 +17,7 @@
                         <th>Amount</th>
                         <th>Total Votes</th>
                         <th>Email</th>
+                        <th>Time of Vote</th>
                     </tr>
                    <% for(var i = 0; i< votesHistory.length; i++) {%> 
                  
@@ -26,6 +27,7 @@
                         <td><%=votesHistory[i].amount%></td>
                         <td><%=votesHistory[i].totalVotes%></td>
                         <td><%=votesHistory[i].email%></td>
+                        <td><%=votesHistory[i].createdAt%></td>
                     </tr>
                     <%}%>
                 </table>

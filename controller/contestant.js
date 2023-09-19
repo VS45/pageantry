@@ -40,7 +40,7 @@ exports.getAdminVote=async(req,res,next)=>{
 
 exports.getContestants=async(req,res,next)=>{
     try{
-const contestants=await contestant.find();
+const contestants=await contestant.find().where('status').equals('Active');
 let totalVotes=0
 for(let i=0;i<contestants.length;i++){
 totalVotes+=contestants[i].totalVotes||0;
